@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class GamesController < ApplicationController
 
   def word_exists?(word)
@@ -18,7 +21,7 @@ class GamesController < ApplicationController
   end
 
   def new
-    @letters = ('A'..'Z').to_a.sample(10)
+    @letters = Array.new(10) { ('A'..'Z').to_a.sample }
   end
 
   def score
